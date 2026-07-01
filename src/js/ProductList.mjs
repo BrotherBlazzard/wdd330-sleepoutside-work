@@ -3,11 +3,12 @@ import { renderListWithTemplate } from './utils.mjs';
 function productCardTemplate(product) {
   return `
     <li class="product-card">
-      <a href="product_pages/?product=${product.Id}">
+      <a href="../product_pages/index.html?product=${product.Id}">
         <img src="${product.Image}" alt="${product.NameWithoutBrand}" />
       <h3>${product.Brand.Name}</h3>
       <p>${product.FinalPrice}</p>
-      <a href="/product_pages/?product=${product.Id}">View Details</a>
+      <p>View Details</p>
+      </a>
     </li>
   `;
 }
