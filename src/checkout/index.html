@@ -6,63 +6,97 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sleep Outside | Checkout</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/checkout.js" type="module"></script>
 </head>
 
 <body>
   <header class="divider" id="main-header"></header>
 
-  <main class="divider checkout">
-    <h2>Review & Place your Order</h2>
-    <section class="checkout-form">
-      <form name="checkout">
+  <main class="divider checkout-page">
+    <section class="checkout">
+      <h2>Review & Place Your Order</h2>
+
+      <form name="checkout" class="checkout-form" novalidate>
         <fieldset>
-          <legend></legend>
-          <div class="checkout__name">
-            <label for="fname">First Name</label>
-            <input type="text" name="fname" id="fname" required />
-            <label for="lname">Last Name</label>
-            <input type="text" name="lname" id="lname" required />
+          <legend>Contact & Shipping</legend>
+          <div class="form-grid form-grid--two">
+            <div class="form-control">
+              <label for="fname">First Name</label>
+              <input type="text" name="fname" id="fname" autocomplete="given-name" required />
+            </div>
+            <div class="form-control">
+              <label for="lname">Last Name</label>
+              <input type="text" name="lname" id="lname" autocomplete="family-name" required />
+            </div>
           </div>
-          <div class="checkout__address">
-            <label for="address">Address</label>
-            <input type="text" name="address" id="address" required />
-            <label for="city">City</label>
-            <input type="text" name="city" id="city" required />
-            <label for="state">State</label>
-            <input type="text" name="state" id="state" required />
-            <label for="zip">Zip</label>
-            <input type="text" name="zip" id="zip" required />
+
+          <div class="form-grid">
+            <div class="form-control">
+              <label for="address">Street Address</label>
+              <input type="text" name="address" id="address" autocomplete="street-address" required />
+            </div>
+          </div>
+
+          <div class="form-grid form-grid--three">
+            <div class="form-control">
+              <label for="city">City</label>
+              <input type="text" name="city" id="city" autocomplete="address-level2" required />
+            </div>
+            <div class="form-control">
+              <label for="state">State</label>
+              <input type="text" name="state" id="state" autocomplete="address-level1" required />
+            </div>
+            <div class="form-control">
+              <label for="zip">ZIP Code</label>
+              <input type="text" name="zip" id="zip" autocomplete="postal-code" inputmode="numeric" required />
+            </div>
           </div>
         </fieldset>
+
         <fieldset>
           <legend>Payment</legend>
-          <div class="checkout__payment">
-            <label for="cardNumber">Card Number</label>
-            <input type="text" name="cardNumber" id="cardNumber" required />
-            <label for="exp">Expiration</label>
-            <input type="text" name="exp" id="exp" required />
-            <label for="cvv">CVV</label>
-            <input type="text" name="cvv" id="cvv" required />
+          <div class="form-grid">
+            <div class="form-control">
+              <label for="cardNumber">Card Number</label>
+              <input type="text" name="cardNumber" id="cardNumber" autocomplete="cc-number" inputmode="numeric" aria-describedby="cardHint" required />
+              <small id="cardHint">Enter numbers only.</small>
+            </div>
+          </div>
+
+          <div class="form-grid form-grid--two">
+            <div class="form-control">
+              <label for="exp">Expiration (MM/YY)</label>
+              <input type="text" name="exp" id="exp" autocomplete="cc-exp" placeholder="MM/YY" required />
+            </div>
+            <div class="form-control">
+              <label for="cvv">Security Code (CVV)</label>
+              <input type="text" name="cvv" id="cvv" autocomplete="cc-csc" inputmode="numeric" aria-label="3 or 4 digit security code" required />
+            </div>
           </div>
         </fieldset>
+
         <fieldset class="checkout-summary">
           <legend>Order Summary</legend>
+          <dl class="order-summary" aria-live="polite">
+            <dt>Items</dt>
+            <dd id="numberItems"></dd>
 
-          <div class="order__summary">
-            <div>Items</div>
-            <div id="numberItems"></div>
-            <div>Subtotal</div>
-            <div id="cartTotal"></div>
-            <div>Shipping</div>
-            <div>Tax</div>
-            <div id="tax"></div>
-            <div id="shipping"></div>
-            <div>Total</div>
-            <div id="total"></div>
-          </div>
+            <dt>Subtotal</dt>
+            <dd id="cartTotal"></dd>
+
+            <dt>Shipping</dt>
+            <dd id="shipping"></dd>
+
+            <dt>Tax</dt>
+            <dd id="tax"></dd>
+
+            <dt class="order-total-label">Total</dt>
+            <dd class="order-total-value" id="total"></dd>
+          </dl>
         </fieldset>
-        <button type="submit" id="checkoutSubmit">Checkout</button>
+
+        <button type="submit" id="checkoutSubmit">Place Order</button>
       </form>
     </section>
   </main>
