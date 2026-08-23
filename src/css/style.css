@@ -217,6 +217,40 @@ button {
   font-size: 1em;
 }
 
+.product-card {
+  & .view-details {
+    display: inline-block;
+    margin-top: 0.35rem;
+    padding: 0.55rem 1rem;
+    border: 1px solid rgb(0 0 0 / 10%);
+    border-radius: 999px;
+    background: linear-gradient(180deg, #6a7420 0%, var(--secondary-color) 100%);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(48, 48, 48, 0.18);
+    transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+
+    &:hover {
+      background: var(--tertiary-color);
+      box-shadow: 0 8px 16px rgba(48, 48, 48, 0.25);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 8px rgba(48, 48, 48, 0.2);
+    }
+
+    &:focus-visible {
+      outline: 3px solid #f3c27f;
+      outline-offset: 2px;
+    }
+  }
+}
+
 /* End product list card */
 
 .product-detail {

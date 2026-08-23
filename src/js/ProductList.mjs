@@ -7,7 +7,7 @@ function productCardTemplate(product) {
       <h3>${product.Brand.Name}</h3>
       <p>${product.NameWithoutBrand}</p>
       <p class="product-card_price">$${product.FinalPrice}</p>
-      <p><a href="../product_pages/index.html?product=${product.Id}">View Details</a></p>
+      <p><a class="view-details" href="../product_pages/index.html?product=${product.Id}">View Details</a></p>
     </li>
   `;
 }
